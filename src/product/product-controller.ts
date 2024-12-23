@@ -3,12 +3,13 @@ import { Request } from "express-jwt";
 import { validationResult } from "express-validator";
 import createHttpError from "http-errors";
 import ProductService from "./product-service";
-import { Product } from "./product-types";
+import { Filter, Product } from "./product-types";
 import { FileStorage } from "../common/types/storage";
 import { v4 as uuid } from "uuid";
 import { UploadedFile } from "express-fileupload";
 import { AuthRequest } from "../common/types";
 import { Roles } from "../common/constants";
+import mongoose from "mongoose";
 class ProductController {
     constructor(
         private productService: ProductService,
@@ -52,6 +53,7 @@ class ProductController {
             product as unknown as Product,
         );
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         res.json({ id: newProduct._id });
     };
 
@@ -125,6 +127,54 @@ class ProductController {
         );
 
         res.json({ id: newProduct._id });
+    };
+
+    getAll = async (req: Request, res: Response) => {
+        const { q, tenantId, categoryId, isPublish } = req.query;
+
+        const filters: Filter = {};
+
+        if (isPublish === "true") {
+            filters.isPublish = true;
+        }
+
+        if (tenantId) filters.tenantId = tenantId as string;
+
+        if (
+            categoryId &&
+            mongoose.Types.ObjectId.isValid(categoryId as string)
+        ) {
+            filters.categoryId = new mongoose.Types.ObjectId(
+                categoryId as string,
+            );
+        }
+
+        const products = await this.productService.getProducts(
+            q as string,
+            filters,
+            {
+                page: req.query.page ? parseInt(req.query.page as string) : 1,
+                limit: req.query.limit
+                    ? parseInt(req.query.limit as string)
+                    : 10,
+            },
+        );
+
+        const finalProducts = (products.data as Product[]).map(
+            (product: Product) => {
+                return {
+                    ...product,
+                    image: this.storage.getObjectUrl(product.image),
+                };
+            },
+        );
+
+        res.json({
+            data: finalProducts,
+            total: products.total,
+            pageSize: products.limit,
+            currentPage: products.page,
+        });
     };
 }
 
