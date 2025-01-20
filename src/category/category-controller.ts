@@ -9,11 +9,9 @@ export class CategoryController {
     constructor(
         private categoryService: CategoryService,
         private logger: Logger,
-    ) {
-        this.create = this.create.bind(this);
-    }
+    ) {}
 
-    async create(req: Request, res: Response, next: NextFunction) {
+    create = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return next(createHttpError(400, result.array()[0].msg as string));
@@ -28,9 +26,9 @@ export class CategoryController {
 
         this.logger.info(`Created category`, { id: category._id });
         res.json({ id: category._id });
-    }
+    };
 
-    async update(req: Request, res: Response, next: NextFunction) {
+    update = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return next(createHttpError(400, result.array()[0].msg as string));
@@ -72,15 +70,15 @@ export class CategoryController {
         res.json({
             id: updatedCategory?._id,
         });
-    }
+    };
 
-    async gatAll(req: Request, res: Response) {
+    gatAll = async (req: Request, res: Response) => {
         const categories = await this.categoryService.getAll();
         this.logger.info(`Getting categories list`);
         res.json(categories);
-    }
+    };
 
-    async getOne(req: Request, res: Response, next: NextFunction) {
+    getOne = async (req: Request, res: Response, next: NextFunction) => {
         const { categoryId } = req.params;
         const category = await this.categoryService.getOne(categoryId);
         if (!category) {
@@ -88,5 +86,5 @@ export class CategoryController {
         }
         this.logger.info(`Getting category`, { id: category._id });
         res.json(category);
-    }
+    };
 }
