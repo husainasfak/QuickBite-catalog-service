@@ -1,0 +1,93 @@
+[
+    
+    {
+        "name": "Beverage",
+        "priceConfiguration": {
+            "Size": {
+                "priceType": "base",
+                "availableOptions": [
+                    "100ml",
+                    "250ml",
+                    "500ml"
+                ]
+            },
+            "Cooling": {
+                "priceType": "additional",
+                "availableOptions": [
+                    "Chilled",
+                    "Normal"
+                ]
+            }
+        },
+        "attributes": [
+            {
+                "name": "isPopular",
+                "widgetType": "switch",
+                "defaultValue": "No",
+                "availableOptions": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
+                "name": "isSugarFree",
+                "widgetType": "switch",
+                "defaultValue": "No",
+                "availableOptions": [
+                    "Yes",
+                    "No"
+                ]
+            }
+        ]
+    },
+    {
+		"name": "Pizza",
+		"priceConfiguration": {
+			"Size": {
+				"priceType": "base",
+				"availableOptions": [
+					"Small",
+					"Medium",
+					"Large"
+				]
+			},
+			"Crust": {
+				"priceType": "additional",
+				"availableOptions": [
+					"Thin",
+					"Thick"
+				]
+			}
+		},
+		"attributes": [
+			{
+				"name": "isHit",
+				"widgetType": "switch",
+				"defaultValue": "No",
+				"availableOptions": [
+					"Yes",
+					"No"
+				]
+			},
+			{
+				"name": "isVeg",
+				"widgetType": "switch",
+				"defaultValue": "Yes",
+				"availableOptions": [
+					"Yes",
+					"No"
+				]
+			},
+			{
+				"name": "ExtraCheese",
+				"widgetType": "switch",
+				"defaultValue": "No",
+				"availableOptions": [
+					"Yes",
+					"No"
+				]
+			}
+		]
+	}
+    
+]

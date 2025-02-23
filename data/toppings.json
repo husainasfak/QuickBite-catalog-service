@@ -1,0 +1,64 @@
+{
+    "toppings": [
+        {
+            "name": "Olives",
+            "price": 30,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Mushrooms",
+            "price": 25,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Jalapenos",
+            "price": 35,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Paneer",
+            "price": 50,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Chicken",
+            "price": 60,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Corn",
+            "price": 20,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Capsicum",
+            "price": 25,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Extra Cheese",
+            "price": 40,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "Pepperoni",
+            "price": 70,
+            "image": "",
+            "tenantId": ""
+        },
+        {
+            "name": "BBQ Sauce",
+            "price": 30,
+            "image": "",
+            "tenantId": ""
+        }
+    ]
+}

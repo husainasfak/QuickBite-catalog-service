@@ -1,0 +1,270 @@
+{
+    "products": [
+        {
+            "name": "Margherita Pizza",
+            "description": "Classic cheese and tomato pizza.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "Small": 199,
+                        "Medium": 349,
+                        "Large": 499
+                    }
+                },
+                "Crust": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Thin": 30,
+                        "Thick": 50
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isHit", "value": true },
+                { "name": "isVeg", "value": true },
+                { "name": "ExtraCheese", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Pepperoni Pizza",
+            "description": "Delicious pepperoni with mozzarella cheese.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "Small": 249,
+                        "Medium": 399,
+                        "Large": 549
+                    }
+                },
+                "Crust": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Thin": 40,
+                        "Thick": 60
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isHit", "value": true },
+                { "name": "isVeg", "value": false },
+                { "name": "ExtraCheese", "value": true }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "BBQ Chicken Pizza",
+            "description": "Smoky BBQ chicken with onions and cheese.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "Small": 259,
+                        "Medium": 429,
+                        "Large": 599
+                    }
+                },
+                "Crust": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Thin": 35,
+                        "Thick": 55
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isHit", "value": false },
+                { "name": "isVeg", "value": false },
+                { "name": "ExtraCheese", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Veggie Delight Pizza",
+            "description": "Loaded with fresh vegetables and cheese.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "Small": 229,
+                        "Medium": 399,
+                        "Large": 569
+                    }
+                },
+                "Crust": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Thin": 25,
+                        "Thick": 45
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isHit", "value": true },
+                { "name": "isVeg", "value": true },
+                { "name": "ExtraCheese", "value": true }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Paneer Tikka Pizza",
+            "description": "Indian-style paneer tikka with spices and cheese.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "Small": 239,
+                        "Medium": 419,
+                        "Large": 589
+                    }
+                },
+                "Crust": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Thin": 30,
+                        "Thick": 50
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isHit", "value": false },
+                { "name": "isVeg", "value": true },
+                { "name": "ExtraCheese", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Coca-Cola",
+            "description": "Refreshing fizzy cola drink.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "100ml": 20,
+                        "250ml": 40,
+                        "500ml": 70
+                    }
+                },
+                "Cooling": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Chilled": 5,
+                        "Normal": 0
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isPopular", "value": true },
+                { "name": "isSugarFree", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Sprite",
+            "description": "Lemon-lime flavored refreshing drink.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "100ml": 20,
+                        "250ml": 40,
+                        "500ml": 70
+                    }
+                },
+                "Cooling": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Chilled": 5,
+                        "Normal": 0
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isPopular", "value": true },
+                { "name": "isSugarFree", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Mango Juice",
+            "description": "Fresh mango pulp juice, naturally sweet.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "100ml": 25,
+                        "250ml": 50,
+                        "500ml": 90
+                    }
+                },
+                "Cooling": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Chilled": 5,
+                        "Normal": 0
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isPopular", "value": false },
+                { "name": "isSugarFree", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        },
+        {
+            "name": "Lassi",
+            "description": "Traditional Indian yogurt-based drink.",
+            "image": "",
+            "priceConfiguration": {
+                "Size": {
+                    "priceType": "base",
+                    "availableOptions": {
+                        "100ml": 30,
+                        "250ml": 60,
+                        "500ml": 100
+                    }
+                },
+                "Cooling": {
+                    "priceType": "additional",
+                    "availableOptions": {
+                        "Chilled": 5,
+                        "Normal": 0
+                    }
+                }
+            },
+            "attributes": [
+                { "name": "isPopular", "value": true },
+                { "name": "isSugarFree", "value": false }
+            ],
+            "tenantId": "",
+            "categoryId": "",
+            "isPublish": true
+        }
+    ]
+}

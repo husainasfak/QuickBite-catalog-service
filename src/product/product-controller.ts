@@ -10,10 +10,13 @@ import { UploadedFile } from "express-fileupload";
 import { AuthRequest } from "../common/types";
 import { Roles } from "../common/constants";
 import mongoose from "mongoose";
+import { MessageProducerBroker } from "../common/types/broker";
+import { mapToObject } from "../utils";
 class ProductController {
     constructor(
         private productService: ProductService,
         private storage: FileStorage,
+        private broker: MessageProducerBroker,
     ) {}
     create = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);
@@ -49,8 +52,23 @@ class ProductController {
             image: imageName,
         };
 
-        const newProduct = await this.productService.createProduct(
+        const newProduct: Product = await this.productService.createProduct(
             product as unknown as Product,
+        );
+
+        // Send product to kafka
+        // Best practice - move topic name to the config
+        await this.broker.sendMessage(
+            "product",
+            JSON.stringify({
+                id: newProduct._id,
+                priceConfiguration: mapToObject(
+                    newProduct.priceConfiguration as unknown as Map<
+                        string,
+                        any
+                    >,
+                ),
+            }),
         );
 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -121,12 +139,25 @@ class ProductController {
             image: imageName ? imageName : oldImage,
         };
 
-        const newProduct = await this.productService.updateProduct(
+        const updateProduct = await this.productService.updateProduct(
             productId,
             updatedProduct as unknown as Product,
         );
-
-        res.json({ id: newProduct._id });
+        // Send product to kafka
+        // Best practice - move topic name to the config
+        await this.broker.sendMessage(
+            "product",
+            JSON.stringify({
+                id: updateProduct._id,
+                priceConfiguration: mapToObject(
+                    updateProduct.priceConfiguration as unknown as Map<
+                        string,
+                        any
+                    >,
+                ),
+            }),
+        );
+        res.json({ id: updateProduct._id });
     };
 
     getAll = async (req: Request, res: Response) => {
